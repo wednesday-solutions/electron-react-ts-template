@@ -1,7 +1,7 @@
 on:
   push:
     branches:
-      # - qa
+      - qa
 
 name: Create Beta Release
 

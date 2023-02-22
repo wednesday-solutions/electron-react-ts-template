@@ -1,7 +1,7 @@
 name: React GraphQL TypeScript Template CD
 on:
   push:
-    # branches: [master]
+    branches: [qa]
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
