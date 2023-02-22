@@ -5,7 +5,7 @@
     <img src="https://uploads-ssl.webflow.com/5ee36ce1473112550f1e1739/5f5879492fafecdb3e5b0e75_wednesday_logo.svg">
   </a>
   <p>
-    <h3 align="left">React GraphQL TypeScript Template</h3>
+    <h3 align="left">Electron React GraphQL TypeScript Template</h3>
   </p>
 
   <p>
@@ -200,7 +200,6 @@ An enterprise react template application showcasing - Testing strategies, Global
   - [app/containers/HomeContainer/tests](app/containers/HomeContainer/tests)
   - [app/services/tests/repoApi.test.ts](app/services/tests/repoApi.test.ts)
   - [app/components/T/tests/index.test.tsx](app/components/T/tests/index.test.tsx)
-
 
 ## Misc
 

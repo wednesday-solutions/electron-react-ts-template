@@ -1,10 +1,10 @@
 name: Jest Coverage Report with Annotations (CI)
 on:
   pull_request:
-    branches:
-      - master
-      - qa
-      - develop
+    # branches:
+    #   - master
+    #   - qa
+    #   - develop
 jobs:
   coverage_report:
     name: Jest Coverage Report
@@ -20,10 +20,10 @@ jobs:
         with:
           path: 'jest.config.json'
           prop_path: 'coverageThreshold.global.statements'
-          
+
       - name: Install dependencies
         run: yarn
-        
+
       - name: Test and generate coverage report
         uses: artiomtr/jest-coverage-report-action@v2.0-rc.4
         with:
