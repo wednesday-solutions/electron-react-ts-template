@@ -11,9 +11,9 @@
     "node": ">=8.15.1"
   },
   "author": "Mac",
-  "homepage": "https://github.com/wednesday-solutions/react-graphql-ts-template",
+  "homepage": "./",
   "license": "MIT",
-  "main": "./main/main.js",
+  "main": "main/main.js",
   "scripts": {
     "analyze:clean": "rimraf stats.json",
     "preanalyze": "npm run analyze:clean",
@@ -57,13 +57,27 @@
     "build-storybook": "export ENVIRONMENT_NAME=production && build-storybook",
     "initialize": "git checkout --orphan temp-branch && git add -A && git commit -m 'Initial commit' && git branch -D master && git branch -m master",
     "generate": "react-generate",
-    "electron:dev": "export ENVIRONMENT_NAME=local && concurrently -c green.bold,blue.bold,white.bold -n WEBPACK,TYPESCRIPT,ELECTRON \"cross-env NODE_ENV=development node server\" \"yarn tsc:watch\" \"wait-on  http://localhost:3000 && cross-env NODE_ENV=development electron .\""
+    "electron:dev": "export ENVIRONMENT_NAME=local && concurrently -c green.bold,blue.bold,white.bold -n WEBPACK,TYPESCRIPT,ELECTRON \"cross-env NODE_ENV=development node server\" \"yarn tsc:watch\" \"wait-on  http://localhost:3000 && cross-env NODE_ENV=development electron .\"",
+    "electron:prod": "yarn run build && concurrently -c gree.bold,blue.bold -n WEBPACK,ELECTRON \"yarn run start:prod\" \"wait-on  http://localhost:3000 &&  cross-env NODE_ENV=development  electron .\"",
+    "electron:build": "yarn run build && electron-builder"
   },
   "browserslist": [
     "last 2 versions",
     "> 1%",
     "IE 10"
   ],
+  "build": {
+    "directories": {
+      "buildResources": "build"
+    },
+    "files": [
+      "build/**/*",
+      "node_modules/**/*",
+      "package.json",
+      "main/main.js"
+    ],
+    "extends": null
+  },
   "lint-staged": {
     "*.{js,ts,jsx,tsx}": [
       "npm run lint:eslint:fix",
@@ -96,7 +110,6 @@
     "date-fns": "^2.28.0",
     "deep-map-keys": "^2.0.1",
     "dotenv": "10.0.0",
-    "electron": "^23.1.0",
     "express": "4.16.4",
     "fontfaceobserver": "2.1.0",
     "git-commit-msg-linter": "^4.1.1",
@@ -180,6 +193,8 @@
     "concurrently": "^7.0.0",
     "coveralls": "3.0.3",
     "css-loader": "^5.2.6",
+    "electron": "^23.1.1",
+    "electron-builder": "^23.6.0",
     "electron-devtools-installer": "^3.2.0",
     "eslint": "^8.11.0",
     "eslint-config-airbnb": "17.1.0",

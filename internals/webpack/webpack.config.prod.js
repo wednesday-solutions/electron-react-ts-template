@@ -129,5 +129,6 @@ module.exports = require('./webpack.config.base')({
   devtool: 'source-map',
   performance: {
     assetFilter: (assetFilename) => !/(\.map$)|(^(main\.|favicon\.))/.test(assetFilename)
-  }
+  },
+  publicPath: './'
 });
