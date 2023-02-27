@@ -4,7 +4,7 @@
   "description": "A React Typescript GraphQL application",
   "repository": {
     "type": "git",
-    "url": "git://github.com/wednesday-solutions/react-graphql-ts-template.git"
+    "url": "git@github.com:wednesday-solutions/electron-react-ts-template.git"
   },
   "engines": {
     "npm": ">=5",
@@ -67,6 +67,7 @@
     "IE 10"
   ],
   "build": {
+    "appId": "electron-react-ts-template",
     "directories": {
       "buildResources": "build"
     },
@@ -76,7 +77,12 @@
       "package.json",
       "main/main.js"
     ],
-    "extends": null
+    "extends": null,
+    "publish": {
+      "provider": "github",
+      "owner": "electron-react-ts-template",
+      "repo": "electron-react-ts-template"
+    }
   },
   "lint-staged": {
     "*.{js,ts,jsx,tsx}": [
