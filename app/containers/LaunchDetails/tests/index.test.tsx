@@ -6,12 +6,13 @@
  */
 
 import React from 'react';
-import { renderProvider, timeout } from '@utils/testUtils';
+import { renderProvider } from '@utils/testUtils';
 // import { fireEvent } from '@testing-library/dom'
 import { LaunchDetailsTest as LaunchDetails, mapDispatchToProps } from '..';
 import { LaunchDetailsProps } from '../types';
 import history from '@app/utils/history';
 import { requestGetLaunch } from '../reducer';
+import { waitFor } from '@testing-library/react';
 
 describe('<LaunchDetails /> container tests', () => {
   let submitSpy: jest.Mock;
@@ -33,8 +34,8 @@ describe('<LaunchDetails /> container tests', () => {
   it('should call dispatchLaunch if launchId param is present', async () => {
     history.location.pathname = '/1';
     renderProvider(<LaunchDetails {...defaultProps} />, { path: '/:launchId' });
-    await timeout(500);
-    expect(submitSpy).toBeCalledWith('1');
+
+    await waitFor(() => expect(submitSpy).toBeCalledWith('1'));
   });
 
   it('should mapDispatchToProps works as expected', () => {

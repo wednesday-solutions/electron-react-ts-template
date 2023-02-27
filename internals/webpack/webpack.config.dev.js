@@ -49,5 +49,7 @@ module.exports = require('./webpack.config.base')({
 
   performance: {
     hints: false
-  }
+  },
+
+  publicPath: '/'
 });

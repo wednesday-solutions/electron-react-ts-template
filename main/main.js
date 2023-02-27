@@ -1,6 +1,7 @@
 const { app, BrowserWindow } = require('electron');
 const path = require('path');
-const { default: installer, REDUX_DEVTOOLS, REACT_DEVELOPER_TOOLS } = require('electron-devtools-installer');
+
+const isDev = process.env.NODE_ENV === 'development';
 
 function createWindow() {
   const win = new BrowserWindow({
@@ -11,8 +12,13 @@ function createWindow() {
     }
   });
 
-  if (process.env.NODE_ENV === 'development') {
+  if (isDev) {
     win.loadURL(`http://localhost:3000`);
+    win.webContents.once('dom-ready', () => {
+      win.webContents.openDevTools();
+    });
+  } else {
+    win.loadURL(`file://${path.join(__dirname, '../build/index.html')}`);
     win.webContents.once('dom-ready', () => {
       win.webContents.openDevTools();
     });
@@ -22,10 +28,14 @@ function createWindow() {
 app.whenReady().then(() => {
   createWindow();
 
-  const options = {
-    loadExtensionOptions: { allowFileAccess: true }
-  };
-  installer([REDUX_DEVTOOLS, REACT_DEVELOPER_TOOLS], options);
+  if (isDev) {
+    const { default: installer, REDUX_DEVTOOLS, REACT_DEVELOPER_TOOLS } = require('electron-devtools-installer');
+
+    const options = {
+      loadExtensionOptions: { allowFileAccess: true }
+    };
+    installer([REDUX_DEVTOOLS, REACT_DEVELOPER_TOOLS], options);
+  }
   app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) {
       createWindow();
