@@ -82,6 +82,12 @@
       "provider": "github",
       "owner": "electron-react-ts-template",
       "repo": "electron-react-ts-template"
+    },
+    "linux": {
+      "target": [
+        "AppImage"
+      ],
+      "category": "Development"
     }
   },
   "lint-staged": {
