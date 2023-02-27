@@ -1,7 +1,7 @@
 name: React Template CI
 on:
   pull_request:
-    branches: [qa]
+    branches: [master, qa, dev]
 jobs:
   build-and-test:
     name: Build & Test
