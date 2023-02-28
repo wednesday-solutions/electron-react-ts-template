@@ -3,7 +3,7 @@ name: Publish
 on:
   push:
     branches:
-      - feat/github-release
+      - dev
 
 jobs:
   publish:
@@ -50,8 +50,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: Beta
-          release_name: vBeta
+          tag_name: Beta-01
+          release_name: vBeta-01
           body: ${{ env.COMMIT_MESSAGE }}
           draft: false
           prerelease: false
