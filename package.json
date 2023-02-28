@@ -68,7 +68,6 @@
   ],
   "build": {
     "appId": "electron-react-ts-template",
-    "private": "true",
     "directories": {
       "buildResources": "build"
     },
@@ -82,7 +81,8 @@
     "publish": {
       "provider": "github",
       "owner": "wednesday-solutions",
-      "repo": "electron-react-ts-template"
+      "repo": "electron-react-ts-template",
+      "private": "true"
     },
     "linux": {
       "target": [
