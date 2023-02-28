@@ -68,6 +68,7 @@
   ],
   "build": {
     "appId": "electron-react-ts-template",
+    "private": "true",
     "directories": {
       "buildResources": "build"
     },
