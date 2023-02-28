@@ -80,7 +80,7 @@
     "extends": null,
     "publish": {
       "provider": "github",
-      "owner": "electron-react-ts-template",
+      "owner": "wednesday-solutions",
       "repo": "electron-react-ts-template"
     },
     "linux": {
