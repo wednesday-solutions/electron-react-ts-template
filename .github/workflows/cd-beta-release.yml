@@ -41,6 +41,7 @@ jobs:
           # CSC_KEY_PASSWORD: ${{ secrets.CSC_KEY_PASSWORD }}
           # This is used for uploading release assets to github
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          EP_DRAFT: true
         run: |
           yarn run electron-builder -- --publish always --linux
 
@@ -49,8 +50,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: Beta
-          release_name: vBeta
+          tag_name: Beta-01
+          release_name: vBeta-01
           body: ${{ env.COMMIT_MESSAGE }}
           draft: false
           prerelease: false
