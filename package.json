@@ -155,7 +155,6 @@
     "cross-env": "7.0.3",
     "date-fns": "^2.28.0",
     "deep-map-keys": "^2.0.1",
-    "dmg-license": "^1.0.11",
     "dotenv": "10.0.0",
     "express": "4.16.4",
     "fontfaceobserver": "2.1.0",
