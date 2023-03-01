@@ -1,10 +1,10 @@
 {
   "name": "react-graphql-ts-template",
-  "version": "1.0.3",
+  "version": "1.0.7-alpha.1",
   "description": "A React Typescript GraphQL application",
   "repository": {
     "type": "git",
-    "url": "git://github.com/wednesday-solutions/react-graphql-ts-template.git"
+    "url": "git@github.com:wednesday-solutions/electron-react-ts-template.git"
   },
   "engines": {
     "npm": ">=5",
@@ -67,6 +67,7 @@
     "IE 10"
   ],
   "build": {
+    "appId": "electron-react-ts-template",
     "directories": {
       "buildResources": "build"
     },
@@ -76,7 +77,52 @@
       "package.json",
       "main/main.js"
     ],
-    "extends": null
+    "extends": null,
+    "publish": {
+      "provider": "github",
+      "owner": "wednesday-solutions",
+      "repo": "electron-react-ts-template",
+      "private": "true"
+    },
+    "mac": {
+      "target": {
+        "target": "default",
+        "arch": [
+          "arm64",
+          "x64"
+        ]
+      },
+      "type": "distribution",
+      "hardenedRuntime": true,
+      "entitlements": "assets/entitlements.mac.plist",
+      "entitlementsInherit": "assets/entitlements.mac.plist",
+      "gatekeeperAssess": false
+    },
+    "dmg": {
+      "contents": [
+        {
+          "x": 130,
+          "y": 220
+        },
+        {
+          "x": 410,
+          "y": 220,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ]
+    },
+    "linux": {
+      "target": [
+        "AppImage"
+      ],
+      "category": "Development"
+    }
   },
   "lint-staged": {
     "*.{js,ts,jsx,tsx}": [
