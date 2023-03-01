@@ -7,7 +7,7 @@ on:
 
 jobs:
   publish:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     strategy:
       matrix:
         node-version: [16.x]
@@ -62,4 +62,4 @@ jobs:
           EP_DRAFT: false
           EP_PRE_RELEASE: true
         run: |
-          yarn run electron-builder -- --publish always --linux
+          yarn run electron-builder -- --publish always --win --mac --linux

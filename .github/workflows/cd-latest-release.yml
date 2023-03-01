@@ -11,7 +11,7 @@ jobs:
     # # config in package.json > "build" and remove the conditional below
     # if: ${{ github.repository_owner == 'electron-react-boilerplate' }}
 
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     strategy:
       matrix:
         node-version: [16.x]
@@ -105,4 +105,4 @@ jobs:
           EP_DRAFT: false
           EP_PRE_RELEASE: false
         run: |
-          yarn run electron-builder -- --publish always --linux
+          yarn run electron-builder -- --publish always --win --mac --linux
