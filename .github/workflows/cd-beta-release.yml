@@ -32,17 +32,6 @@ jobs:
       - name: Build
         run: yarn build
 
-      # - name: Create Prod Release
-      #   uses: actions/create-release@latest
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #   with:
-      #     tag_name: Test-01
-      #     release_name: vTest-01
-      #     body: ${{ env.COMMIT_MESSAGE }}
-      #     draft: false
-      #     prerelease: false
-
       - name: Bump version and push tag
         run: |
           cd "$GITHUB_WORKSPACE"
@@ -76,4 +65,4 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           EP_PRE_RELEASE: true
         run: |
-          yarn run electron-builder -- --publish always --linux
+          yarn run electron-builder -- --publish always --win --mac --linux
