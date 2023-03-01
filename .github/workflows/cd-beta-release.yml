@@ -32,6 +32,17 @@ jobs:
       - name: Build
         run: yarn build
 
+      - name: Create Prod Release
+        uses: actions/create-release@latest
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: Test-01
+          release_name: vTest-01
+          body: ${{ env.COMMIT_MESSAGE }}
+          draft: false
+          prerelease: false
+
       - name: Publish releases
         env:
           # # These values are used for auto updates signing
@@ -44,14 +55,3 @@ jobs:
           EP_DRAFT: true
         run: |
           yarn run electron-builder -- --publish always --linux
-
-      - name: Create Prod Release
-        uses: actions/create-release@latest
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: Beta-01
-          release_name: vBeta-01
-          body: ${{ env.COMMIT_MESSAGE }}
-          draft: false
-          prerelease: false
