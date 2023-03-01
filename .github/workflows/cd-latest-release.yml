@@ -1,24 +1,37 @@
+name: Publish Latest
+
 on:
   push:
     branches:
       - master
 
-name: Create Production Release
-
 jobs:
-  build:
-    name: Create Production Release
+  publish:
+    # To enable auto publishing to github, update your electron publisher
+    # # config in package.json > "build" and remove the conditional below
+    # if: ${{ github.repository_owner == 'electron-react-boilerplate' }}
+
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [16.x]
+
     steps:
-      - name: Actions Ecosystem Action Get Merged Pull Request
-        uses: actions-ecosystem/action-get-merged-pull-request@v1.0.1
-        id: getMergedPR
+      - name: Checkout git repo
+        uses: actions/checkout@v3
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Checkout code
-        uses: actions/checkout@v2
-      - run: |
-          git fetch --prune --unshallow --tags
+          node-version: ${{ matrix.node-version }}
+          cache: 'yarn'
+
+      - name: Install dependencies
+        run: yarn
+
+      - name: Build
+        run: yarn build
+
       - name: Get Commit Message
         run: |
           declare -A category=( [fix]="" [chore]="" [revert]="" [build]="" [docs]="" [feat]="" [perf]="" [refactor]="" [style]="" [temp]="" [test]="" [ci]="" [others]="") 
@@ -56,6 +69,7 @@ jobs:
                 msg+="${categoryTitle[others]}${category[others]}"
             fi
             echo "COMMIT_MESSAGE=${msg}" >> $GITHUB_ENV
+
       - name: Bump version and push tag
         run: |
           cd "$GITHUB_WORKSPACE"
@@ -63,10 +77,12 @@ jobs:
           git config user.name "$GITHUB_ACTOR"
           npm version patch
           git push
+
       - name: get-npm-version
         id: package-version
         uses: martinbeentjes/npm-get-version-action@master
-      - name: Create Prod Release
+
+      - name: Create Beta Release
         uses: actions/create-release@latest
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -76,3 +92,17 @@ jobs:
           body: ${{ env.COMMIT_MESSAGE }}
           draft: false
           prerelease: false
+
+      - name: Publish releases
+        env:
+          # # These values are used for auto updates signing
+          # APPLE_ID: ${{ secrets.APPLE_ID }}
+          # APPLE_ID_PASS: ${{ secrets.APPLE_ID_PASS }}
+          # CSC_LINK: ${{ secrets.CSC_LINK }}
+          # CSC_KEY_PASSWORD: ${{ secrets.CSC_KEY_PASSWORD }}
+          # This is used for uploading release assets to github
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          EP_DRAFT: false
+          EP_PRE_RELEASE: false
+        run: |
+          yarn run electron-builder -- --publish always --linux
