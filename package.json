@@ -1,6 +1,6 @@
 {
   "name": "react-graphql-ts-template",
-  "version": "1.0.5-beta.1",
+  "version": "1.0.6",
   "description": "A React Typescript GraphQL application",
   "repository": {
     "type": "git",
@@ -82,8 +82,7 @@
       "provider": "github",
       "owner": "wednesday-solutions",
       "repo": "electron-react-ts-template",
-      "private": "true",
-      "releaseType": "release"
+      "private": "true"
     },
     "mac": {
       "target": {

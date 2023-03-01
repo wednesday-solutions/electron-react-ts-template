@@ -62,8 +62,8 @@ jobs:
         with:
           tag_name: ${{ steps.package-version.outputs.current-version}}
           release_name: v${{ steps.package-version.outputs.current-version}}
-          draft: true
-          prerelease: false
+          draft: false
+          prerelease: true
 
       - name: Publish releases
         env:
@@ -74,6 +74,6 @@ jobs:
           # CSC_KEY_PASSWORD: ${{ secrets.CSC_KEY_PASSWORD }}
           # This is used for uploading release assets to github
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          EP_DRAFT: true
+          EP_PRE_RELEASE: true
         run: |
           yarn run electron-builder -- --publish always --linux
