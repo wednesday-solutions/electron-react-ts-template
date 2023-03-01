@@ -43,6 +43,28 @@ jobs:
       #     draft: false
       #     prerelease: false
 
+      - name: Bump version and push tag
+        run: |
+          cd "$GITHUB_WORKSPACE"
+          git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
+          git config user.name "$GITHUB_ACTOR"
+          npm version prerelease --preid=beta
+          git push
+
+      - name: get-npm-version
+        id: package-version
+        uses: martinbeentjes/npm-get-version-action@master
+
+      - name: Create Beta Release
+        uses: actions/create-release@latest
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ steps.package-version.outputs.current-version}}
+          release_name: v${{ steps.package-version.outputs.current-version}}
+          draft: false
+          prerelease: false
+
       - name: Publish releases
         env:
           # # These values are used for auto updates signing
