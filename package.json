@@ -82,7 +82,8 @@
       "provider": "github",
       "owner": "wednesday-solutions",
       "repo": "electron-react-ts-template",
-      "private": "true"
+      "private": "true",
+      "releaseType": "release"
     },
     "mac": {
       "target": {
