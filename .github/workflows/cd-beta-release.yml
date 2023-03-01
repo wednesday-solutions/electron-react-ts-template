@@ -62,7 +62,7 @@ jobs:
         with:
           tag_name: ${{ steps.package-version.outputs.current-version}}
           release_name: v${{ steps.package-version.outputs.current-version}}
-          draft: false
+          draft: true
           prerelease: false
 
       - name: Publish releases
