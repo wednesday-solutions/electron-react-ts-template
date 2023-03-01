@@ -3,7 +3,7 @@ name: Publish Beta
 on:
   push:
     branches:
-      - qa
+      - staging
 
 jobs:
   publish:
