@@ -38,7 +38,7 @@ jobs:
 
       - name: get-npm-version
         run: |
-          echo "current-version=${npm pkg get version | sed 's/"//g'}" >> $GITHUB_OUTPUT
+          echo "current-version=$(npm pkg get version | sed 's/"//g')" >> $GITHUB_OUTPUT
 
       - name: Create Alpha Release
         uses: actions/create-release@latest
