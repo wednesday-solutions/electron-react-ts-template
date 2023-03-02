@@ -39,7 +39,6 @@ jobs:
       - name: get-npm-version
         run: |
           echo "current-version=${npm pkg get version | sed 's/"//g'}" >> $GITHUB_OUTPUT
-          echo ${{ steps.package-version.outputs.current-version}}
 
       - name: Create Beta Release
         uses: actions/create-release@latest
