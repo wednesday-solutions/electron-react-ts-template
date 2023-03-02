@@ -7,11 +7,7 @@ on:
 
 jobs:
   publish:
-    # To enable auto publishing to github, update your electron publisher
-    # # config in package.json > "build" and remove the conditional below
-    # if: ${{ github.repository_owner == 'electron-react-boilerplate' }}
-
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     strategy:
       matrix:
         node-version: [16.x]
@@ -42,7 +38,8 @@ jobs:
 
       - name: get-npm-version
         id: package-version
-        uses: martinbeentjes/npm-get-version-action@master
+        run: |
+          echo "current-version=$(npm pkg get version | sed 's/"//g')" >> $GITHUB_OUTPUT
 
       - name: Create Beta Release
         uses: actions/create-release@latest
@@ -66,4 +63,4 @@ jobs:
           EP_DRAFT: false
           EP_PRE_RELEASE: true
         run: |
-          yarn run electron-builder -- --publish always --linux
+          yarn run electron-builder -- --publish always --win --mac --linux
