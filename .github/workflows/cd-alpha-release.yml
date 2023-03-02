@@ -7,7 +7,7 @@ on:
 
 jobs:
   publish:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     strategy:
       matrix:
         node-version: [16.x]
@@ -38,9 +38,10 @@ jobs:
 
       - name: get-npm-version
         id: package-version
-        uses: martinbeentjes/npm-get-version-action@master
+        run: |
+          echo "current-version=$(npm pkg get version | sed 's/"//g')" >> $GITHUB_OUTPUT
 
-      - name: Create Beta Release
+      - name: Create Alpha Release
         uses: actions/create-release@latest
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -62,4 +63,4 @@ jobs:
           EP_DRAFT: false
           EP_PRE_RELEASE: true
         run: |
-          yarn run electron-builder -- --publish always --linux
+          yarn run electron-builder -- --publish always --win --mac --linux
