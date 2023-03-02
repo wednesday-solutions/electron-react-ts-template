@@ -63,4 +63,4 @@ jobs:
           EP_DRAFT: false
           EP_PRE_RELEASE: true
         run: |
-          yarn run electron-builder -- --publish always --linux
+          yarn run electron-builder -- --publish always --win --mac --linux
