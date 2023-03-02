@@ -37,6 +37,7 @@ jobs:
           git push
 
       - name: get-npm-version
+        id: package-version
         run: |
           echo "current-version=$(npm pkg get version | sed 's/"//g')" >> $GITHUB_OUTPUT
 

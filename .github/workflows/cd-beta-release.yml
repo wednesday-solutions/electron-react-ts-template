@@ -37,6 +37,7 @@ jobs:
           git push
 
       - name: get-npm-version
+        id: package-version
         run: |
           echo "current-version=$(npm pkg get version | sed 's/"//g')" >> $GITHUB_OUTPUT
 
@@ -62,4 +63,4 @@ jobs:
           EP_DRAFT: false
           EP_PRE_RELEASE: true
         run: |
-          yarn run electron-builder -- --publish always --win --mac --linux
+          yarn run electron-builder -- --publish always --linux
