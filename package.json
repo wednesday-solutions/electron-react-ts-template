@@ -1,6 +1,6 @@
 {
   "name": "react-graphql-ts-template",
-  "version": "1.0.9-alpha.0",
+  "version": "1.0.9-alpha.1",
   "description": "A React Typescript GraphQL application",
   "repository": {
     "type": "git",
