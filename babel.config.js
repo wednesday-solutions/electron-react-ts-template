@@ -19,7 +19,8 @@ module.exports = {
     '@babel/plugin-syntax-optional-chaining',
     'styled-components',
     '@babel/plugin-proposal-class-properties',
-    '@babel/plugin-syntax-dynamic-import'
+    '@babel/plugin-syntax-dynamic-import',
+    '@babel/plugin-transform-runtime'
   ],
   env: {
     production: {
