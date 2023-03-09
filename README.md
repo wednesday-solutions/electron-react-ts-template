@@ -9,7 +9,7 @@
   </p>
 
   <p>
-An enterprise react template application showcasing - Testing strategies, Global state management, middleware support, a network layer, component library integration, localization, PWA support, route configuration, lazy loading, and Continuous integration & deployment.
+An enterprise electron template application showcasing - Testing strategies, Global state management, middleware support, a network layer, component library integration, localization, PWA support, route configuration, lazy loading, and Continuous integration & deployment.
   </p>
 
 ---
@@ -33,7 +33,7 @@ An enterprise react template application showcasing - Testing strategies, Global
 
 </div>
 
-![React GraphQL TS Template CD](https://github.com/wednesday-solutions/react-graphql-ts-template/workflows/React%20GraphQL%20TypeScript%20Template%20CD/badge.svg)
+![ELECTRON REACT TS Template CD](https://github.com/wednesday-solutions/react-graphql-ts-template/workflows/React%20GraphQL%20TypeScript%20Template%20CD/badge.svg)
 
 <div>
 <img src='./badges/badge-statements.svg' height="20"/>
@@ -48,7 +48,7 @@ An enterprise react template application showcasing - Testing strategies, Global
 
 - Install dependencies using `yarn install`
 
-- Start the dev server using `yarn start`
+- Start the electron dev server using `yarn run electron:start`
 
 - Go through the other scripts in `package.json`
 
