@@ -205,13 +205,13 @@ An enterprise electron template application showcasing - Testing strategies, Glo
 - Each push into `staging` branch will produce a beta release
 - Each push into `master` branch will produce a prod release
 
-- These releases will also have the respective packaged electron app in it assets.
+These releases will also have the respective packaged electron app in it assets.
 
-  Take a look at the following files
+Take a look at the following files
 
-  - [.github/workflows/cd-alpha-release.yml](.github/workflows/cd-alpha-release.yml)
-  - [.github/workflows/cd-beta-release.yml](.github/workflows/cd-beta-release.yml)
-  - [.github/workflows/cd-latest-release.yml](.github/workflows/cd-latest-release.yml)
+- [.github/workflows/cd-alpha-release.yml](.github/workflows/cd-alpha-release.yml)
+- [.github/workflows/cd-beta-release.yml](.github/workflows/cd-beta-release.yml)
+- [.github/workflows/cd-latest-release.yml](.github/workflows/cd-latest-release.yml)
 
 ## Testing using @testing-library/react
 
