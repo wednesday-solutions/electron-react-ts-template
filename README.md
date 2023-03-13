@@ -9,7 +9,7 @@
   </p>
 
   <p>
-An enterprise react template application showcasing - Testing strategies, Global state management, middleware support, a network layer, component library integration, localization, PWA support, route configuration, lazy loading, and Continuous integration & deployment.
+An enterprise electron template application showcasing - Testing strategies, Global state management, middleware support, a network layer, component library integration, localization, PWA support, route configuration, lazy loading, and Continuous integration & deployment.
   </p>
 
 ---
@@ -33,7 +33,7 @@ An enterprise react template application showcasing - Testing strategies, Global
 
 </div>
 
-![React GraphQL TS Template CD](https://github.com/wednesday-solutions/react-graphql-ts-template/workflows/React%20GraphQL%20TypeScript%20Template%20CD/badge.svg)
+![ELECTRON REACT TS Template CD](https://github.com/wednesday-solutions/react-graphql-ts-template/workflows/React%20GraphQL%20TypeScript%20Template%20CD/badge.svg)
 
 <div>
 <img src='./badges/badge-statements.svg' height="20"/>
@@ -48,9 +48,19 @@ An enterprise react template application showcasing - Testing strategies, Global
 
 - Install dependencies using `yarn install`
 
-- Start the dev server using `yarn start`
+- Start the electron dev server using `yarn run electron:start`
+
+- Package the app for production using `yarn run electron:package`
 
 - Go through the other scripts in `package.json`
+
+## Electron Configuration
+
+- Electron configuration using [main.js](https://www.electronjs.org/docs/latest/tutorial/examples)
+
+  Take a look at the following files
+
+  - [main/main.js](main/main.js)
 
 ## TypeScript Configuration
 
@@ -189,6 +199,20 @@ An enterprise react template application showcasing - Testing strategies, Global
   - [.github/workflows/ci.yml](.github/workflows/ci.yml)
   - [.github/workflows/cd.yml](.github/workflows/cd.yml)
 
+## Auto release
+
+- Each push into `dev` branch will produce a alpha release
+- Each push into `staging` branch will produce a beta release
+- Each push into `master` branch will produce a prod release
+
+These releases will also have the respective packaged electron app in it assets.
+
+Take a look at the following files
+
+- [.github/workflows/cd-alpha-release.yml](.github/workflows/cd-alpha-release.yml)
+- [.github/workflows/cd-beta-release.yml](.github/workflows/cd-beta-release.yml)
+- [.github/workflows/cd-latest-release.yml](.github/workflows/cd-latest-release.yml)
+
 ## Testing using @testing-library/react
 
 - Testing is done using the @testing-library/react.
@@ -265,13 +289,3 @@ Where `type` is one of the following:
   Where `flags` is an optional comma-separated list of one or more of the following (must be surrounded in square brackets):
 - `breaking`: alters `type` to be a breaking change
   And `category` can be anything of your choice. If you use a type not found in the list (but it still follows the same format of the message), it'll be grouped under `other`.
-
-## Auto release
-
-- Each push into `qa` branch will produce a beta release
-- Each push into `master` branch will produce a prod release
-
-  Take a look at the following files
-
-- [.github/workflows/beta-release.yml](.github/workflows/beta-release.yml)
-- [.github/workflows/prod-release.yml](.github/workflows/prod-release.yml)
