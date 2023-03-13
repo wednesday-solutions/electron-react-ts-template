@@ -57,7 +57,7 @@
     "build-storybook": "export ENVIRONMENT_NAME=production && build-storybook",
     "initialize": "git checkout --orphan temp-branch && git add -A && git commit -m 'Initial commit' && git branch -D master && git branch -m master",
     "generate": "react-generate",
-    "electron:dev": "export ENVIRONMENT_NAME=local && concurrently -c green.bold,blue.bold,white.bold -n WEBPACK,TYPESCRIPT,ELECTRON \"cross-env NODE_ENV=development node server\" \"yarn tsc:watch\" \"wait-on  http://localhost:3000 && cross-env NODE_ENV=development electron .\"",
+    "electron:dev": "export ENVIRONMENT_NAME=local && concurrently -k -c green.bold,blue.bold,white.bold -n WEBPACK,TYPESCRIPT,ELECTRON \"cross-env NODE_ENV=development node server\" \"yarn tsc:watch\" \"wait-on  http://localhost:3000 && cross-env NODE_ENV=development electron .\"",
     "electron:prod": "yarn run build && concurrently -c gree.bold,blue.bold -n WEBPACK,ELECTRON \"yarn run start:prod\" \"wait-on  http://localhost:3000 &&  cross-env NODE_ENV=development  electron .\"",
     "electron:build": "yarn run build && electron-builder"
   },
