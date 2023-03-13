@@ -50,7 +50,17 @@ An enterprise electron template application showcasing - Testing strategies, Glo
 
 - Start the electron dev server using `yarn run electron:start`
 
+- Package the app for production using `yarn run electron:package`
+
 - Go through the other scripts in `package.json`
+
+## Electron Configuration
+
+- Electron configuration using [main.js](https://www.electronjs.org/docs/latest/tutorial/examples)
+
+  Take a look at the following files
+
+  - [main/main.js](main/main.js)
 
 ## TypeScript Configuration
 
