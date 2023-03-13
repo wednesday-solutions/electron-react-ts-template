@@ -59,7 +59,8 @@
     "generate": "react-generate",
     "electron:dev": "export ENVIRONMENT_NAME=local && concurrently -c green.bold,blue.bold,white.bold -n WEBPACK,TYPESCRIPT,ELECTRON \"cross-env NODE_ENV=development node server\" \"yarn tsc:watch\" \"wait-on  http://localhost:3000 && cross-env NODE_ENV=development electron .\"",
     "electron:prod": "yarn run build && concurrently -c gree.bold,blue.bold -n WEBPACK,ELECTRON \"yarn run start:prod\" \"wait-on  http://localhost:3000 &&  cross-env NODE_ENV=development  electron .\"",
-    "electron:build": "yarn run build && electron-builder"
+    "electron:build": "yarn run build && electron-builder",
+    "electron:package": "yarn run electron-builder -- --publish always --win --mac --linux"
   },
   "browserslist": [
     "last 2 versions",
