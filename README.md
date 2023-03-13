@@ -278,10 +278,12 @@ Where `type` is one of the following:
 
 ## Auto release
 
-- Each push into `qa` branch will produce a beta release
+- Each push into `dev` branch will produce a alpha release
+- Each push into `staging` branch will produce a beta release
 - Each push into `master` branch will produce a prod release
 
   Take a look at the following files
 
-- [.github/workflows/beta-release.yml](.github/workflows/beta-release.yml)
-- [.github/workflows/prod-release.yml](.github/workflows/prod-release.yml)
+- [.github/workflows/cd-alpha-release.yml](.github/workflows/cd-alpha-release.yml)
+- [.github/workflows/cd-beta-release.yml](.github/workflows/cd-beta-release.yml)
+- [.github/workflows/cd-latest-release.yml](.github/workflows/cd-latest-release.yml)
