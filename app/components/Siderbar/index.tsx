@@ -17,13 +17,15 @@ const SidebarWrapper = styled.div`
 const SidebarDrawer = styled(Drawer)`
   && {
     .ant-drawer-body {
-      padding: ${(props) => props.theme.headerHeight} 0 0 0;
       background-color: ${colors.primary};
-      width: ${(props) => props.theme.sidebarWidth};
       text-align: center;
     }
+    .ant-drawer-header {
+      border-bottom: 1px solid ${colors.primary};
+      background-color: ${colors.primary};
+    }
     .ant-drawer-close {
-      top: 1rem;
+      padding-top: 1rem;
     }
   }
 `;

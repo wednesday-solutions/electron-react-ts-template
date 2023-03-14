@@ -1,6 +1,6 @@
 {
   "name": "react-graphql-ts-template",
-  "version": "1.0.8",
+  "version": "1.0.9-beta.0",
   "description": "A React Typescript GraphQL application",
   "repository": {
     "type": "git",
@@ -57,9 +57,10 @@
     "build-storybook": "export ENVIRONMENT_NAME=production && build-storybook",
     "initialize": "git checkout --orphan temp-branch && git add -A && git commit -m 'Initial commit' && git branch -D master && git branch -m master",
     "generate": "react-generate",
-    "electron:dev": "export ENVIRONMENT_NAME=local && concurrently -c green.bold,blue.bold,white.bold -n WEBPACK,TYPESCRIPT,ELECTRON \"cross-env NODE_ENV=development node server\" \"yarn tsc:watch\" \"wait-on  http://localhost:3000 && cross-env NODE_ENV=development electron .\"",
+    "electron:dev": "export ENVIRONMENT_NAME=local && concurrently -k -c green.bold,blue.bold,white.bold -n WEBPACK,TYPESCRIPT,ELECTRON \"cross-env NODE_ENV=development node server\" \"yarn tsc:watch\" \"wait-on  http://localhost:3000 && cross-env NODE_ENV=development electron .\"",
     "electron:prod": "yarn run build && concurrently -c gree.bold,blue.bold -n WEBPACK,ELECTRON \"yarn run start:prod\" \"wait-on  http://localhost:3000 &&  cross-env NODE_ENV=development  electron .\"",
-    "electron:build": "yarn run build && electron-builder"
+    "electron:build": "yarn run build && electron-builder",
+    "electron:package": "yarn run electron-builder -- --publish always --win --mac --linux"
   },
   "browserslist": [
     "last 2 versions",
@@ -199,6 +200,7 @@
     "@babel/plugin-transform-modules-commonjs": "7.14.5",
     "@babel/plugin-transform-react-constant-elements": "7.14.5",
     "@babel/plugin-transform-react-inline-elements": "7.14.5",
+    "@babel/plugin-transform-runtime": "^7.21.0",
     "@babel/preset-env": "^7.14.7",
     "@babel/preset-react": "^7.14.5",
     "@babel/preset-typescript": "^7.16.7",
