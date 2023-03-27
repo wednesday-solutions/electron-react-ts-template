@@ -57,7 +57,7 @@
     "build-storybook": "export ENVIRONMENT_NAME=production && build-storybook",
     "initialize": "git checkout --orphan temp-branch && git add -A && git commit -m 'Initial commit' && git branch -D master && git branch -m master",
     "generate": "react-generate",
-    "electron:dev": "export ENVIRONMENT_NAME=local && concurrently -k -c green.bold,blue.bold,white.bold -n WEBPACK,TYPESCRIPT,ELECTRON \"cross-env  NODE_OPTIONS=--openssl-legacy-provider && NODE_ENV=development node server\" \"yarn tsc:watch\" \"wait-on  http://localhost:3000 && cross-env NODE_ENV=development electron .\"",
+    "electron:dev": "export ENVIRONMENT_NAME=local && concurrently -k -c green.bold,blue.bold,white.bold -n WEBPACK,TYPESCRIPT,ELECTRON \"cross-env  NODE_OPTIONS=--openssl-legacy-provider NODE_ENV=development node server\" \"yarn tsc:watch\" \"wait-on  http://localhost:3000 && cross-env NODE_ENV=development electron .\"",
     "electron:prod": "yarn run build && concurrently -c gree.bold,blue.bold -n WEBPACK,ELECTRON \"yarn run start:prod\" \"wait-on  http://localhost:3000 &&  cross-env NODE_ENV=development  electron .\"",
     "electron:build": "yarn run build && electron-builder",
     "electron:package": "yarn run electron-builder -- --publish always --win --mac --linux"
@@ -303,7 +303,7 @@
     "wait-on": "^7.0.1",
     "webpack": "^5.40.0",
     "webpack-bundle-analyzer": "^4.4.2",
-    "webpack-cli": "4.7.2",
+    "webpack-cli": "^5.0.1",
     "webpack-dev-middleware": "5.0.0",
     "webpack-hot-middleware": "2.25.0",
     "webpack-pwa-manifest": "4.3.0",
