@@ -1,7 +1,7 @@
 <img align="left" src="https://github.com/wednesday-solutions/electron-react-ts-template/assets/108000259/c01c3e46-72c3-4438-acee-cca274b9c295" width="420" />
 
 <div>
-  <a href="https://www.wednesday.is?utm_source=gthb&utm_medium=repo&utm_campaign=serverless" align="left" style="margin-left: 0;">
+  <a href="https://www.wednesday.is/?utm_source=github&utm_medium=electron-react-ts-template" align="left" style="margin-left: 0;">
     <img src="https://uploads-ssl.webflow.com/5ee36ce1473112550f1e1739/5f5879492fafecdb3e5b0e75_wednesday_logo.svg">
   </a>
   <p>
@@ -21,7 +21,7 @@ An enterprise electron template application showcasing - Testing strategies, Glo
   </p>
 
   <div>
-    <a href="https://www.wednesday.is/contact-us?utm_source=gthb&utm_medium=repo&utm_campaign=serverless" target="_blank">
+    <a href="https://www.wednesday.is/contact-us/?utm_source=github&utm_medium=electron-react-ts-template" target="_blank">
       <img src="https://uploads-ssl.webflow.com/5ee36ce1473112550f1e1739/5f6ae88b9005f9ed382fb2a5_button_get_in_touch.svg" width="121" height="34">
     </a>
     <a href="https://github.com/wednesday-solutions/" target="_blank">
